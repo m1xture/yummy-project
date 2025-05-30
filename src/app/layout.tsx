@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
+import StoreProvider from "@/redux/StoreProvider";
 import "../sass/base/reset.scss";
 import "../sass/base/common.scss";
 
@@ -20,8 +21,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${poppinsSans.variable}`}>{children}</body>
-    </html>
+    <StoreProvider>
+      <html lang="en">
+        <body className={`${poppinsSans.variable}`}>{children}</body>
+      </html>
+    </StoreProvider>
   );
 }
