@@ -28,20 +28,17 @@
 
   --title-fs: 44px;
   --subtitle-lg-fs: 28px;
-  --subtitle-md-fs: 24px
+  --subtitle-md-fs: 24px;
   --text-xl-fs: 18px;
   --text-lg-fs: 16px;
   --text-md-fs: 14px;
   --text-sm-fs: 12px;
 
   @media screen and (min-width: var(--tablet-bp)) {
-    
   }
 
   @media screen and (min-width: var(--desktop-bp)) {
-    
   }
-
 }
 
 :root[data-theme="dark"] {
@@ -74,4 +71,8 @@ body {
 }
 button:hover {
   cursor: pointer;
+}
+input,
+textarea {
+  font-family: var(--font-poppins-sans);
 }
