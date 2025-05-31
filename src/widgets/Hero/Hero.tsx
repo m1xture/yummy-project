@@ -1,0 +1,65 @@
+import Link from "next/link";
+import Image from "next/image";
+import HeroDish from "../../imgs/hero/heroDish.png";
+import css from "./Hero.module.scss";
+
+const Hero = () => {
+  return (
+    <section className={css.hero}>
+      <div className={css.heroBox}>
+        <h1 className={css.heroTitle}>
+          <span className={css.heroTitleSpan}>So</span>Yummy
+        </h1>
+        <p className={css.heroText}>
+          &quot;What to cook?&quot; is not only a recipe app, it is, in fact,
+          your cookbook. You can add your own recipes to save them for the
+          future.
+        </p>
+        <div className={css.heroSearchBox}>
+          <input
+            type="text"
+            name=""
+            placeholder="Beaf"
+            className={css.heroSearchInput}
+          />
+          <button type="button" className={css.heroSearchBtn}>
+            Search
+          </button>
+        </div>
+      </div>
+      <div className={css.heroImgbox}>
+        <Image src={HeroDish} alt="dish" className={css.heroDishImg} />
+        <div className={css.heroCategoriesBox}>
+          <p className={css.heroCategoriesText}>
+            <span className={css.heroCategoriesTextSpan}>
+              Delicious and healthy
+            </span>{" "}
+            way to enjoy a variety of fresh ingredients in one satisfying meal
+          </p>
+          <Link href={""} className={css.heroCategoriesLink}>
+            See recipes
+            <span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="18"
+                height="18"
+                viewBox="0 0 18 18"
+                fill="none"
+              >
+                <path
+                  d="M3 9H15M15 9L10.5 4.5M15 9L10.5 13.5"
+                  stroke="#3E4462"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </span>
+          </Link>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Hero;
