@@ -3,7 +3,11 @@
   align-items: center;
   justify-content: space-between;
 }
-
+// .heroMainBlock {
+//   display: flex;
+//   align-items: center;
+//   justify-content: space-between;
+// } //? Senya
 .heroBox {
   display: flex;
   flex-direction: column;
@@ -103,8 +107,11 @@
   letter-spacing: 0.2px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
   gap: 4px;
   margin-top: 7px;
-  margin-left: 72%;
+}
+.heroIcon {
+  width: 18px;
+  height: 18px;
 }
