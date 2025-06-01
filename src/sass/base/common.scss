@@ -2,6 +2,9 @@
   //* Colors
 
   --bg-color: #fafafa;
+  --bg-del-but: #ebf3d4;
+  --svg-ico: #22252a;
+  --text-but: #fafafa;
   --bg-accent-color: #ebf3d4;
   --bg-card-color: #fff;
   --bg-secondary-color: #22252a;
@@ -43,6 +46,8 @@
 
 :root[data-theme="dark"] {
   --bg-color: #1e1f28;
+  --bg-del-but: #1e1f28;
+  --svg-ico: #fafafa;
   --bg-accent-color: #2a2c36;
   --bg-card-color: #2a2c36;
   --bg-secondary-color: #8baa36;

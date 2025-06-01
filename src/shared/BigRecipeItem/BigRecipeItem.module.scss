@@ -1,0 +1,78 @@
+.bigRecipeItem{
+    position: relative;
+    width: 1240px;
+    height: 404px;
+    border-radius: 8px;
+    background: var(--bg-card-color);
+    padding: 40px;
+    display: flex;
+    gap: 40px;
+}
+.recipePhoto{
+    width: 318px;
+    height: 324px;
+    border-radius: 8px;
+}
+.infoCont{
+    width: 679px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.recipeTitle{
+    color: var(--text-color);
+    font-size: var(--subtitle-md-fs);
+    font-weight: 500;
+    line-height: 100%;
+    letter-spacing: -0.24px;
+}
+.recipeDescr{
+    margin-top: 50px;
+    color: var(--text-secondary-color);
+    font-size: var(--text-xl-fs);
+    font-weight: 400;
+    line-height: 133.333%;
+    letter-spacing: -0.36px;
+}
+.recipeTime{
+    margin-top: auto;
+    color: var(--text-secondary-color);
+    font-size: var(--text-md-fs);
+    font-weight: 400;
+    line-height: 142.857%;
+    letter-spacing: -0.24px;
+}
+.delBut{
+    position: absolute;
+    right: 40px;
+    top: 40px;
+    width: 44px;
+    height: 44px;
+    border-radius: 4px;
+    background: var(--bg-del-but);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &>svg>path{
+        stroke: var(--svg-ico);
+    }
+}
+.seeBut{
+    width: 160px;
+    height: 54px;
+    position: absolute;
+    right: 40px;
+    bottom: 40px;
+    &>svg>path{
+        fill: var(--bg-secondary-color);
+    }
+    &>p{
+        top:50%;
+        left:50%;
+        transform:translate(-50%, -50%);
+        position: absolute;
+        color: var(--text-but);
+        font-size: var(--text-lg-fs);
+        font-weight: 400;
+    }
+}
