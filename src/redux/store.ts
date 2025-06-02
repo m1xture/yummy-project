@@ -1,5 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { paginationReducer } from "./slices/paginationSlice";
+import { categoriesApi } from "./apis/categoriesApi";
 import { authApi } from "./auth/authOperations";
 import { authReducer } from "./slices/authSlice";
 import {
@@ -27,12 +28,13 @@ export const store = configureStore({
     pagination: paginationReducer,
     user: persistedAuthReducer,
     [authApi.reducerPath]: authApi.reducer,
+    [categoriesApi.reducerPath]: categoriesApi.reducer,                              
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware({
     serializableCheck: {
       ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
     },
-  }).concat(authApi.middleware)
+  }).concat(authApi.middleware).concat(categoriesApi.middleware)
 });
 
 export type RootState = ReturnType<typeof store.getState>;
