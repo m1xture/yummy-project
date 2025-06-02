@@ -21,10 +21,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <StoreProvider>
+    // <StoreProvider>
       <html lang="en">
-        <body className={`${poppinsSans.variable}`}>{children}</body>
+        <body className={`${poppinsSans.variable}`}>
+          <StoreProvider>{children}</StoreProvider>
+        </body>
       </html>
-    </StoreProvider>
+    // {/* </StoreProvider> */}
   );
 }

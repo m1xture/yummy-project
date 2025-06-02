@@ -9,7 +9,7 @@ const Hero = () => {
   return (
     <section className={css.hero}>
       <Container>
-        {/* <div className={css.heroMainBlock}> */}
+        <div className={css.heroMainBlock}>
           <div className={css.heroBox}>
             <h1 className={css.heroTitle}>
               <span className={css.heroTitleSpan}>So</span>Yummy
@@ -51,7 +51,7 @@ const Hero = () => {
               </Link>
             </div>
           </div>
-        {/* </div> */}
+        </div>
       </Container>
     </section>
   );
