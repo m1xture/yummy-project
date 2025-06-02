@@ -47,17 +47,21 @@ export const baseQueryWithAuth: BaseQueryFn<
             }
         }, api, extraOptions);
 
-        const { accessToken, refreshToken } = refreshResult.data as TokensResponse;
-
         if (refreshResult.data) {
+            const { accessToken, refreshToken } = refreshResult.data as TokensResponse;
             // store the new token in the store or wherever you keep it
             api.dispatch(setAccessToken(accessToken));
             saveRefreshToken(refreshToken)
             // retry the initial query
             result = await baseQuery(args, api, extraOptions);
         } else {
+            console.log('redirect test')
             // refresh failed - do something like redirect to login or show a "retry" button
-            api.dispatch(deleteRefreshToken());
+            deleteRefreshToken();
+            // redirect('/start');
+            if (typeof window !== 'undefined') {
+                window.location.href = '/start';
+            }
         }
     }
     return result;
