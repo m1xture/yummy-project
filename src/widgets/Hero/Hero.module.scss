@@ -2,12 +2,19 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  background-image: url("../../../public/hero/heroBackground.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  // height: 800px;
 }
-// .heroMainBlock {
-//   display: flex;
-//   align-items: center;
-//   justify-content: space-between;
-// } //? Senya
+
+.heroMainBlock {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+} //? Senya
+
 .heroBox {
   display: flex;
   flex-direction: column;
@@ -83,6 +90,9 @@
   background-color: var(--bg-card-color);
   width: 298px;
   border-radius: 8px;
+  position: absolute;
+  right: -40px;
+  bottom: 120px;
 }
 
 .heroCategoriesText {
