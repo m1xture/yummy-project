@@ -74,12 +74,12 @@ const RegistrationPage = () => {
         dispatch(
           setUser({
             user: {
-              ...response.data.user,
-              accessToken: response.data.accessToken,
+              ...response.user,
+              accessToken: response.accessToken,
             },
           })
         );
-        saveRefreshToken(response.data.refreshToken);
+        saveRefreshToken(response.refreshToken);
       } catch (err) {
         console.log(err);
       }
