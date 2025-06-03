@@ -22,6 +22,7 @@
     "redux": "^5.0.1",
     "redux-persist": "^6.0.0",
     "sass": "^1.89.0",
+    "use-draggable-scroll": "^0.1.0",
     "zod": "^3.25.36"
   },
   "devDependencies": {
