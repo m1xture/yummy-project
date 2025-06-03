@@ -65,13 +65,13 @@
 }
 
 .heroSearchBtn {
-  color: #fafafa;
+  color: var(--bg-color);
   font-size: 16px;
   font-weight: 400;
   line-height: normal;
   width: 161px;
   height: 70px;
-  background-color: #22252a;
+  background-color: var(--bg-secondary-color);
   padding: 23px 52px;
   border-radius: 100px;
   border-bottom-left-radius: 300px;
@@ -110,7 +110,7 @@
 }
 
 .heroCategoriesLink {
-  color: #3e4462;
+  color: var(--text-color);
   font-size: 10px;
   font-weight: 400;
   line-height: 12px;
