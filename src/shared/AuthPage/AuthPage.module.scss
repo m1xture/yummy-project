@@ -1,15 +1,30 @@
 .authPage {
-  background-image: url("../../../public/authImgs/authBg.png");
+  background-image: url("../../../public/authImgs/authBg.svg");
   height: 100vh;
   background-repeat: no-repeat;
-  background-size: cover;
-  position: relative;
+  background-size: contain;
+  // position: relative;
+  background-position: bottom;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.test {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.authPhoto {
+  width: 532px;
+  height: 468px;
 }
 
 .authBox {
-  position: absolute;
-  right: 130px;
-  bottom: 193px;
+  // position: absolute;
+  // right: 130px;
+  // bottom: 193px;
 }
 
 .authBlock {
@@ -21,7 +36,7 @@
 }
 
 .authTitle {
-  color: #fafafa;
+  color: var(--bg-color);
   font-size: 28px;
   font-weight: 600;
   line-height: 30px;
@@ -42,8 +57,8 @@
   padding: 16px 18px 16px 50px;
   height: 25px;
   background-color: transparent;
-  border: 1px solid #fafafa;
-  color: #fafafa;
+  border: 1px solid var(--bg-color);
+  color: var(--bg-color);
   font-size: 18px;
   font-weight: 400;
   line-height: normal;
@@ -52,8 +67,13 @@
   border-radius: 10px;
   width: 330px;
 
+  &:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px #2a2c36 inset;
+    -webkit-text-fill-color: var(--bg-color);
+  }
+
   &::placeholder {
-    color: #fafafa;
+    color: var(--bg-color);
     font-size: 18px;
     font-weight: 400;
     line-height: normal;
@@ -160,7 +180,7 @@
   background-color: var(--accent-color);
   padding: 21px 0;
   border-radius: 6px;
-  color: #fafafa;
+  color: var(--bg-color);
   text-align: center;
   font-size: 16px;
   font-weight: 400;
@@ -171,7 +191,7 @@
 .authLink {
   display: block;
   margin-top: 18px;
-  color: #fafafa;
+  color: var(--bg-color);
   font-size: 16px;
   font-weight: 400;
   line-height: normal;
