@@ -1,3 +1,5 @@
+@import "../../sass/utils/mixins.scss";
+
 .hero {
   display: flex;
   align-items: center;
@@ -5,7 +7,7 @@
   background-image: url("../../../public/hero/heroBackground.png");
   background-repeat: no-repeat;
   background-size: cover;
-  // height: 800px;
+  padding-top: 126px;
 }
 
 .heroMainBlock {
@@ -48,41 +50,17 @@
 }
 
 .heroSearchInput {
-  width: 254px;
-  height: 24px;
-  padding: 23px 48px;
-  background-color: var(--bg-card-color);
-  border-radius: 100px;
-  border-bottom-left-radius: 300px;
-  //   border-top-right-radius: 300px;
-
-  &::placeholder {
-    color: var(--subtext-color);
-    font-size: 16px;
-    font-weight: 400;
-    line-height: normal;
-  }
+  @include roundedInput(254px);
 }
 
 .heroSearchBtn {
-  color: #fafafa;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: normal;
-  width: 161px;
-  height: 70px;
-  background-color: #22252a;
-  padding: 23px 52px;
-  border-radius: 100px;
-  border-bottom-left-radius: 300px;
-  border-top-right-radius: 300px;
-  margin-left: -50px;
+  margin-left: -45px;
+  @include roundedBtn(52px, 23px, var(--bg-secondary-color), 16px);
 }
 
 .heroDishImg {
   width: 578px;
   height: 539px;
-  margin-top: 100px;
 }
 
 .heroCategoriesBox {
@@ -91,13 +69,12 @@
   width: 298px;
   border-radius: 8px;
   position: absolute;
-  right: -40px;
-  bottom: 120px;
+  right: -100px;
+  bottom: 89px;
 }
 
 .heroCategoriesText {
   color: var(--text-color);
-  //   font-feature-settings: "liga" off, "clig" off;
   font-size: 14px;
   font-weight: 500;
   line-height: 20px;

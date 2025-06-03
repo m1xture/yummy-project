@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import HeroDish from "../../../public/hero/heroDish.png";
+import HeroDish from "../../../public/hero/heroDish.webp";
 import HeroRightArrow from "../../../public/icons/heroRightArrow.svg";
 import Container from "@/shared/Container/Container";
 import css from "./Hero.module.scss";
