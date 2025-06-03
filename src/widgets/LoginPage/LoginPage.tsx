@@ -1,14 +1,12 @@
 "use client";
-import Link from "next/link";
-import css from "./LoginPage.module.scss";
 import { z } from "zod";
-import clsx from "clsx";
 import { useSigninMutation } from "@/redux/auth/authOperations";
 import { useDispatch } from "react-redux";
 import { setUser } from "@/redux/slices/authSlice";
 import { FormEvent, useState } from "react";
 import { useRouter } from "next/navigation";
 import saveRefreshToken from "@/features/auth/saveRefreshToken";
+import AuthPage from "@/shared/AuthPage/AuthPage";
 
 const FormSchema = z.object({
   email: z.string().email(),
@@ -55,7 +53,7 @@ const LoginPage = () => {
           email: data.email,
           password: data.password,
         }).unwrap();
-        console.log(response)
+        console.log(response);
         router.push("/");
         dispatch(
           setUser({
@@ -73,50 +71,11 @@ const LoginPage = () => {
   };
 
   return (
-    <div className={css.loginPage}>
-      <div className={css.loginBox}>
-        <div className={css.loginBlock}>
-          <h2 className={css.loginTitle}>Sign In</h2>
-          <form className={css.loginForm} onSubmit={handleSumbit}>
-            <div
-              className={clsx(
-                css.loginEmailBefore,
-                errors.email && css.loginErrorAfter
-              )}
-            >
-              <input
-                type="text"
-                className={clsx(css.loginInput, errors.email && css.errorInput)}
-                placeholder="Email"
-                name="email"
-              />
-            </div>
-            <div
-              className={clsx(
-                css.loginPasswordBefore,
-                errors.password && css.loginErrorAfter
-              )}
-            >
-              <input
-                type="text"
-                className={clsx(
-                  css.loginInput,
-                  errors.password && css.errorInput
-                )}
-                placeholder="Password"
-                name="password"
-              />
-            </div>
-            <button type="submit" className={css.loginBtn}>
-              Sign In
-            </button>
-          </form>
-        </div>
-        <Link href="/start/registration" className={css.loginLink}>
-          Registration
-        </Link>
-      </div>
-    </div>
+    <AuthPage
+      isRegistration={false}
+      handleSubmit={handleSumbit}
+      errors={errors}
+    />
   );
 };
 
