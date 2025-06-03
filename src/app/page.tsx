@@ -1,5 +1,8 @@
+import withAuth from "@/shared/HOC/withAuth";
 import Hero from "@/widgets/Hero/Hero";
 
-export default function Home() {
+function Home() {
   return <Hero />;
 }
+
+export default withAuth(Home);
