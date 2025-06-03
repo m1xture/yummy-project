@@ -1,0 +1,42 @@
+@use "../../sass/utils/placeholders.scss";
+
+.categories {
+  padding-top: 50px;
+  @media screen and (min-width: 768px) {
+    padding-top: 72px;
+  }
+  @media screen and (min-width: 1440px) {
+    padding-top: 113px;
+  }
+}
+
+.categoriesTitle {
+  @extend %pageTitle;
+  margin-bottom: 50px;
+  @media screen and (min-width: 1440px) {
+    margin-bottom: 100px;
+  }
+}
+.categoriesSublist {
+  @extend %flexCenter;
+  gap: 55px;
+  margin-bottom: 68px;
+  padding-bottom: 28px;
+  overflow-x: scroll;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+.categoriesSubitem {
+  cursor: pointer;
+}
+.categoriesName {
+  color: var(--subtext-color);
+  font-size: var(--text-xl-fs);
+  font-weight: 400;
+  line-height: 1;
+  &Active {
+    color: var(--accent-color);
+  }
+}

@@ -1,9 +1,6 @@
 "use client";
-import Link from "next/link";
-import css from "./RegistrationPage.module.scss";
 import { FormEvent, useState } from "react";
 import { z } from "zod";
-import clsx from "clsx";
 import {
   useSigninMutation,
   useSignupMutation,
@@ -12,6 +9,7 @@ import { useRouter } from "next/navigation";
 import { useDispatch } from "react-redux";
 import { setUser } from "@/redux/slices/authSlice";
 import saveRefreshToken from "@/features/auth/saveRefreshToken";
+import AuthPage from "@/shared/AuthPage/AuthPage";
 
 const FormSchema = z.object({
   name: z.string().min(2, "Name too short"),
@@ -33,7 +31,7 @@ const RegistrationPage = () => {
     Partial<Record<keyof FormFields, string>>
   >({});
 
-  const handleSumbit = async (evt: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (evt: FormEvent<HTMLFormElement>) => {
     evt.preventDefault();
 
     const formData = new FormData(evt.currentTarget);
@@ -58,19 +56,11 @@ const RegistrationPage = () => {
       setErrors({});
       try {
         await registr(data).unwrap();
-        // {
-        //   data: {
-        //     accessToken: string;
-        //     refreshToken: string;
-        //     user: { name: string; email: string; avatarUrl: string };
-        //   };
-        // }
         const response = await login({
           email: data.email,
           password: data.password,
         }).unwrap();
         router.push("/");
-        // console.log(response.data);
         dispatch(
           setUser({
             user: {
@@ -87,63 +77,11 @@ const RegistrationPage = () => {
   };
 
   return (
-    <div className={css.loginPage}>
-      <div className={css.loginBox}>
-        <div className={css.loginBlock}>
-          <h2 className={css.loginTitle}>Registration</h2>
-          <form className={css.loginForm} onSubmit={handleSumbit}>
-            <div
-              className={clsx(
-                css.registrationNameBefore,
-                errors.name && css.rigistartionErrorBefore
-              )}
-            >
-              <input
-                type="text"
-                className={clsx(css.loginInput, errors.name && css.errorInput)}
-                placeholder="Name"
-                name="name"
-              />
-            </div>
-            <div
-              className={clsx(
-                css.loginEmailBefore,
-                errors.email && css.rigistartionErrorBefore
-              )}
-            >
-              <input
-                type="text"
-                className={clsx(css.loginInput, errors.email && css.errorInput)}
-                placeholder="Email"
-                name="email"
-              />
-            </div>
-            <div
-              className={clsx(
-                css.loginPasswordBefore,
-                errors.password && css.rigistartionErrorBefore
-              )}
-            >
-              <input
-                type="text"
-                className={clsx(
-                  css.loginInput,
-                  errors.password && css.errorInput
-                )}
-                placeholder="Password"
-                name="password"
-              />
-            </div>
-            <button type="submit" className={css.loginBtn}>
-              Sign In
-            </button>
-          </form>
-        </div>
-        <Link href="/start/login" className={css.loginLink}>
-          Sign in
-        </Link>
-      </div>
-    </div>
+    <AuthPage
+      isRegistration={true}
+      handleSubmit={handleSubmit}
+      errors={errors}
+    />
   );
 };
 
