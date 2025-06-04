@@ -1,0 +1,16 @@
+.favs *{
+    box-sizing: border-box;
+    transition: all .3s;
+}
+.favs{
+    padding: 100px 0;
+}
+.loader{
+    margin: 0 auto;
+}
+.recipes{
+    margin-top: 100px;
+    display: flex;
+    gap: 50px;
+    flex-direction: column;
+}
