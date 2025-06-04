@@ -6,7 +6,6 @@ import BigRecipeItem from '@/shared/BigRecipeItem/BigRecipeItem';
 import Pagination from '@/shared/Paginator/Paginator';
 import { useState } from 'react';
 import { RecipeSmall } from '@/entities/Recipe.type';
-import MainPageTitle from '@/shared/MainPageTitle/MainPageTitle';
 import { useDelOwnRecipe, useGetOwnRecipes } from '@/redux/apis/myRecipesApi';
 
 export default ({}) => {
@@ -15,10 +14,10 @@ export default ({}) => {
     const [delOwnRecipe] = useDelOwnRecipe();
     const recipes: RecipeSmall[] = data?.recipes ?? [];
     return (<section className={css.ownRecipes}><Container>
-        <MainPageTitle title="My recipes" />
-        {isLoading ? <h1>Loading...</h1> : (data?.total === 0 ? <h1>Nothing</h1> :
+        <h1 className={css.title}>My recipes</h1>
+        {isLoading ? <p>Loading...</p> : (data?.total === 0 ? <p>Nothing</p> :
         <><ul className={css.recipes}>{recipes?.map((recipe) => (
-            <BigRecipeItem toggleFunc={delOwnRecipe} setPage={setPage} key={recipe._id} src={recipe?.preview} title={recipe?.title} descr={recipe?.description} time={Number(recipe?.time)} id={recipe?._id} />
+            <BigRecipeItem moreBlack={false} toggleFunc={delOwnRecipe} setPage={setPage} key={recipe._id} src={recipe?.preview} title={recipe?.title} descr={recipe?.description} time={Number(recipe?.time)} id={recipe?._id} />
         ))}</ul>
         <Pagination page={page} setPage={setPage} maxPage={Math.ceil((data?.total ?? 0)/4)} /></>)}
     </Container></section>);

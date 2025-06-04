@@ -9,16 +9,28 @@
     padding: 14px 24px;
     margin: 50px auto 0;
     gap: 40px;
+    @media screen and (max-width: 767px) {
+        padding: 12px 28px;
+        gap: 24px;
+        margin-top: 40px;
+        height: 51px;
+    }
 }
 .arrow{
     display: flex;
     height: 27px;
     align-items: center;
+    @media screen and (max-width: 767px) {
+        height: 14px;
+    }
 }
 .pages{
     display: flex;
     gap: 24px;
     align-items: center;
+    @media screen and (max-width: 767px) {
+        gap: 18px;
+    }
 }
 .page{
     cursor: pointer;
@@ -31,7 +43,8 @@
     font-size: var(--text-sm-fs);
     font-weight: 500;
     &.activePage{
-        width: 27.81px;
+        color: var(--svg-ico);
+        width: 27px;
         height: 27px;
         border-radius: 50%;
         background-color: var(--active-page);

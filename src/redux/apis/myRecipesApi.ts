@@ -14,7 +14,7 @@ export const ownRecipeApi = createApi({
     }),
     delOwnRecipe: builder.mutation<delRecipe, string>({
       query: (id) => ({
-        url: `own-recipes/${id}`,
+        url: `own-recipes/id/${id}`,
         method: "DELETE",
       }),
       invalidatesTags: [{ type: 'OwnRecipe', id: 'LIST' }],
