@@ -2,12 +2,15 @@
 
 import css from "./Categories.module.scss";
 import { useRef, useEffect } from "react";
+import { useSearchParams } from "next/navigation";
 import Container from "@/shared/Container/Container";
 import { useGetAllCategories } from "@/redux/apis/categoriesApi";
 import { Category } from "@/entities/Category.type";
 import useDraggableScroll from "use-draggable-scroll";
+import clsx from "clsx";
 
 const Categories = () => {
+  const param = useSearchParams().get("q");
   const { data, error, isLoading } = useGetAllCategories();
   const categoriesListRef = useRef<HTMLUListElement>(null!);
   const { onMouseDown } = useDraggableScroll(categoriesListRef, {
@@ -29,7 +32,11 @@ const Categories = () => {
           >
             {data.map((category: Category) => (
               <li
-                className={css.categoriesSubitem}
+                className={clsx(
+                  css.categoriesSubitem,
+                  category.title.toLowerCase() === param &&
+                    css.categoriesSubitemActive
+                )}
                 id={category._id}
                 key={category._id}
               >
